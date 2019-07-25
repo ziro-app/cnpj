@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "Vitor Barbosa",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "netlify-lambda": "^1.5.0"
+  }
 }
