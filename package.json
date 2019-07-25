@@ -1,0 +1,13 @@
+{
+  "name": "cnpj",
+  "version": "1.0.0",
+  "description": "Query cnpj for validation",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify-lambda serve ./src/query-cnpj",
+    "build": "netlify-lambda build ./src/query-cnpj"
+  },
+  "keywords": [],
+  "author": "Vitor Barbosa",
+  "license": "ISC"
+}
