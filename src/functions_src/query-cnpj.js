@@ -1,16 +1,18 @@
 require('dotenv').config()
 const get = require('axios').get
+const URL = process.env.URL
+const TOKEN = process.env.TOKEN
+const response = require('../response')
 
-exports.handler = async ({ method, params, body }) => {
+exports.handler = async ({ httpMethod: http, queryStringParameters: params, body }) => {
 	let state = 'ok'
-	let responseBody = ''
+	let apiResponse = ''
 	try {
-		if (method !== 'POST')
-			state = 'methodError'
-		if (Object.keys(params).length !== 0)
-			state = 'paramsError'
+		if (http !== 'POST') state = 'methodError'
+		if (Object.keys(params).length !== 0) state = 'paramsError'
 		if (state === 'ok') {
-			responseBody = await get(`${process.env.API}${'19.736.609/0001-51'}${process.env.TOKEN}`)
+			const { data } = await get(`${URL}${JSON.parse(body).cnpj}${TOKEN}`)
+			apiResponse = data
 		}
 	} catch (error) {
 		console.log(error)
@@ -18,5 +20,7 @@ exports.handler = async ({ method, params, body }) => {
 			console.log(error.details)
 		state = 'executionError'
 	}
-	return response(state, responseBody)
+	return response(state, apiResponse)
 }
+
+// curl -d '{"cnpj": "21.964.855/0001-02"}' -X POST http://localhost:9000/query-cnpj

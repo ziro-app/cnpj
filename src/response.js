@@ -1,4 +1,4 @@
-const response = (state, responseBody) => {
+const response = (state, apiResponse) => {
 	const headers = {
 		'Access-Control-Allow-Origin': '*',
 		'Access-Control-Allow-Headers': 'Content-Type',
@@ -11,7 +11,7 @@ const response = (state, responseBody) => {
 		executionError: 'Error. Internal execution error on runtime. Check logs',
 		ok: 'Success'
 	}
-	const body = JSON.stringify({ message: message[state], data: responseBody }, null, 4) 
+	const body = JSON.stringify({ message: message[state], data: apiResponse }, null, 4) 
 	return { headers, statusCode, body }
 }
 
