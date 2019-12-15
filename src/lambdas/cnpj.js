@@ -3,8 +3,6 @@ const request = require('../templates/request')
 
 // Retorna informações da Receita Federal para o CNPJ recebido
 
-const lambda = ({ body }) => {
-	return request(body)
-}
+const cnpj = ({ body }) => request(body)
 
-exports.handler = main(lambda)
+exports.handler = main(cnpj)
