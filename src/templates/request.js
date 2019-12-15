@@ -1,9 +1,10 @@
-const axios = require('axios')
+const { get } = require('axios')
+const URL = process.env.URL
+const API_TOKEN = process.env.API_TOKEN
 
-const request = async () => {
-	const config = {}
+const request = async body => {
 	try {
-		const { data } = await axios(config)
+		const { data } = await get(`${URL}${JSON.parse(body).cnpj}${API_TOKEN}`)
 		return {
 			statusCode: 200,
 			body: JSON.stringify(data, null, 4)

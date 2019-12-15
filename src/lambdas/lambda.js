@@ -1,10 +1,10 @@
 const main = require('../templates/main')
 const request = require('../templates/request')
 
-// Descrever objetivo do endpoint
+// Retorna informações da Receita Federal para o CNPJ recebido
 
-const lambda = (event, context, callback) => {
-	return request()
+const lambda = ({ body }) => {
+	return request(body)
 }
 
 exports.handler = main(lambda)
