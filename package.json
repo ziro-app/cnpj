@@ -4,7 +4,7 @@
   "description": "API that validates cnpjs",
   "main": "index.js",
   "scripts": {
-    "start": "netlify-lambda serve -c ./webpack.functions.js ./src/lambdas",
+    "start": "netlify-lambda serve -c ./webpack.functions.js ./src/lambdas -p 9001",
     "build": "netlify-lambda build -c ./webpack.functions.js ./src/lambdas"
   },
   "repository": {
