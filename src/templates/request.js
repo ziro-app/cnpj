@@ -2,8 +2,8 @@ const axios = require('axios')
 
 const request = async (method, { cnpj, ignore_db = false }) => {
 	const url = ignore_db
-		? `${process.env.URL}${cnpj}${process.env.API_TOKEN}&ignore_db`
-		: `${process.env.URL}${cnpj}${process.env.API_TOKEN}`
+		? `${process.env.API_URL}${cnpj}${process.env.API_TOKEN}&ignore_db`
+		: `${process.env.API_URL}${cnpj}${process.env.API_TOKEN}`
 	const config = { url, method }
 	try {
 		const { data } = await axios(config)
