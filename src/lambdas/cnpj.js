@@ -1,8 +1,9 @@
-const main = require('../templates/main')
+const lambda = require('../templates/lambda')
 const request = require('../templates/request')
 
 // Retorna informações da Receita Federal para o CNPJ recebido
+const cnpj = ({ body }) => request('get', body)
 
-const cnpj = ({ body }) => request(body)
-
-exports.handler = main(cnpj)
+// export
+const handler = lambda(cnpj)
+module.exports = { handler }

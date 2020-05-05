@@ -4,22 +4,21 @@
   "description": "API that validates cnpjs",
   "main": "index.js",
   "scripts": {
-    "start": "netlify-lambda serve -c ./webpack.functions.js ./src/lambdas -p 9001",
-    "build": "netlify-lambda build -c ./webpack.functions.js ./src/lambdas"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ziro-app/generator.git"
+    "start": "netlify-lambda serve ./src/lambdas -p 9001",
+    "build": "netlify-lambda build ./src/lambdas"
   },
   "keywords": [],
   "author": "Vitor Barbosa",
   "license": "ISC",
   "dependencies": {
-    "@ziro/middleware": "^1.0.3",
+    "@middy/core": "^1.0.0-beta.10",
+    "@middy/http-json-body-parser": "^1.0.0-beta.10",
+    "@ziro/middleware": "^1.0.5",
     "axios": "^0.19.1",
     "dotenv": "^8.2.0",
-    "middy": "^0.30.4",
-    "netlify-lambda": "^1.6.3",
-    "webpack-node-externals": "^1.7.2"
+    "netlify-lambda": "^1.6.3"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.50"
   }
 }

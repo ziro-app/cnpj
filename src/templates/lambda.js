@@ -1,14 +1,14 @@
 require('dotenv').config()
-const middy = require('middy')
-const { jsonBodyParser } = require('middy/middlewares')
+const middy = require('@middy/core')
+const jsonBodyParser = require('@middy/http-json-body-parser')
 const { preflight } = require('@ziro/middleware')
 const { allowedOrigin } = require('@ziro/middleware')
 const { auth } = require('@ziro/middleware')
 const { errorHandler } = require('@ziro/middleware')
 const { cors } = require('@ziro/middleware')
-const allowed = 'http://localhost:8080'
+const allowed = null // <----------- CHANGE TO NULL BEFORE DEPLOY
 
-const main = handler =>
+const lambda = handler =>
 	middy(handler)
 	.use(preflight)
 	.use(allowedOrigin(allowed))
@@ -17,4 +17,4 @@ const main = handler =>
 	.use(errorHandler)
 	.use(cors)
 
-module.exports = main
+module.exports = lambda
