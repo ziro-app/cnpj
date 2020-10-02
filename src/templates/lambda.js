@@ -6,7 +6,7 @@ const { allowedOrigin } = require('@ziro/middleware')
 const { auth } = require('@ziro/middleware')
 const { errorHandler } = require('@ziro/middleware')
 const { cors } = require('@ziro/middleware')
-const allowed = 'http://localhost:8080' // <----------- CHANGE TO NULL BEFORE DEPLOY
+const allowed = ['http://localhost:7070', 'http://localhost:8080', 'http://localhost:9090']
 
 const lambda = handler =>
 	middy(handler)

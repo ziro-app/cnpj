@@ -13,7 +13,7 @@
   "dependencies": {
     "@middy/core": "^1.0.0-beta.10",
     "@middy/http-json-body-parser": "^1.0.0-beta.10",
-    "@ziro/middleware": "^1.0.5",
+    "@ziro/middleware": "^1.0.8",
     "axios": "^0.19.1",
     "dotenv": "^8.2.0",
     "netlify-lambda": "^1.6.3"
